@@ -31,7 +31,7 @@ class QuestionsController extends Controller
     public function create()
     {
         $question = new Question();
-        return view('questions.create', $question);
+        return view('questions.create', compact('question'));
     }
 
     /**
@@ -54,7 +54,8 @@ class QuestionsController extends Controller
      */
     public function show(Question $question)
     {
-        //
+        $question->increment('views');
+        return view('questions.show', compact('question'));
     }
 
     /**
