@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionsController;
+use App\Http\Controllers\AnswersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('questions', QuestionsController::class)->except('show');
+// Route::post("/questions/{question}/answers", [App\Http\Controllers\AnswersController::class, 'store'])->name("answers.store");
+
+Route::resource('questions.answers', AnswersController::class)->except(['index', 'create', 'show']);
 Route::get("/questions/{slug}", [App\Http\Controllers\QuestionsController::class, 'show'])->name('questions.show');
