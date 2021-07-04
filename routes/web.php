@@ -5,6 +5,7 @@ use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\AnswersController;
 use App\Http\Controllers\AcceptAnswerController;
 use App\Http\Controllers\FavoritesController;
+use App\Http\Controllers\VoteQuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,5 @@ Route::post('/answers/{answer}/accept', AcceptAnswerController::class)->name('an
 
 Route::post("/questions/{question}/favorites", [App\Http\Controllers\FavoritesController::class, 'store'])->name('questions.favorite');
 Route::delete("/questions/{question}/favorites", [App\Http\Controllers\FavoritesController::class, 'destroy'])->name('questions.unfavorite');
+
+Route::post('/questions/{question}/vote', VoteQuestionController::class);
