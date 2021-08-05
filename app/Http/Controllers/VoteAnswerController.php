@@ -7,6 +7,7 @@ use App\Models\Answer;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+
 class VoteAnswerController extends Controller
 {
     public function __construct()
