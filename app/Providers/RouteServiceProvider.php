@@ -38,6 +38,9 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->configureRateLimiting();
         Route::bind('slug', function ($slug) {
+            // return $question = Question::with(["answers.user", "answers" => function ($query) {
+            //     $query->orderBy('votes_count', 'DESC');
+            // }])->where('slug', $slug)->first() ?? abort(404);
             return $question = Question::with("answers.user")->where('slug', $slug)->first() ?? abort(404);
         });
 
