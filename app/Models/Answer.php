@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Question;
 use App\Models\User;
 use App\Traits\VotableTrait;
+use Parsedown;
 
 class Answer extends Model
 {
@@ -14,7 +15,7 @@ class Answer extends Model
     use VotableTrait;
 
     protected $fillable = ['body', 'user_id'];
-    protected $appends = ['created_date'];
+    protected $appends = ['created_date', 'body_html'];
 
     public function question()
     {
@@ -28,7 +29,8 @@ class Answer extends Model
 
     public function getBodyHtmlAttribute()
     {
-        return clean(\Parsedown::instance()->text($this->body));
+        $Parsedown = new Parsedown();
+        return clean($Parsedown->line($this->body));
     }
 
     public static function boot()
