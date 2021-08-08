@@ -16191,3 +16191,17 @@ form.form-delete {
 .vote-controls a.vote-accepted {
   color: #38c172;
 }
+
+.post {
+  padding: 20px 0;
+}
+.post:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.questions {
+  padding: 20px 0;
+}
+.questions:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
