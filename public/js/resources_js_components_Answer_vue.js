@@ -43,11 +43,13 @@ __webpack_require__.r(__webpack_exports__);
         _this.bodyHtml = res.data.body_html;
 
         _this.$toast.success(res.data.message, "Success", {
-          timeout: 3000
+          timeout: 5000,
+          position: "topRight"
         });
       })["catch"](function (err) {
         _this.$toast.error(err.response.data.message, "Error", {
-          timeout: 3000
+          timeout: 5000,
+          position: "topRight"
         });
       });
     },
@@ -68,7 +70,8 @@ __webpack_require__.r(__webpack_exports__);
           axios["delete"](_this2.endpoint).then(function (res) {
             $(_this2.$el).fadeOut(500, function () {
               _this2.$toast.success(res.data.message, "Success", {
-                timeout: 3000
+                timeout: 3000,
+                position: "topRight"
               });
             });
           });

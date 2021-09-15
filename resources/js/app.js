@@ -26,6 +26,7 @@ Vue.use(VueIziToast);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 Vue.component("answer", () => import("./components/Answer"));
 Vue.component("user-info", () => import("./components/UserInfo"));
+Vue.component("favorite", () => import("./components/Favorite"));
 // Vue.component('answer', require('./components/Answer.vue').default);
 // Vue.component('user-info', require('./components/UserInfo.vue'));
 

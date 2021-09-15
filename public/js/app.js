@@ -1871,6 +1871,9 @@ Vue.component("answer", function () {
 });
 Vue.component("user-info", function () {
   return __webpack_require__.e(/*! import() */ "resources_js_components_UserInfo_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/UserInfo */ "./resources/js/components/UserInfo.vue"));
+});
+Vue.component("favorite", function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_Favorite_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Favorite */ "./resources/js/components/Favorite.vue"));
 }); // Vue.component('answer', require('./components/Answer.vue').default);
 // Vue.component('user-info', require('./components/UserInfo.vue'));
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
@@ -49891,7 +49894,7 @@ Vue.compile = compileToFunctions;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Answer_vue":1,"resources_js_components_UserInfo_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Answer_vue":1,"resources_js_components_UserInfo_vue":1,"resources_js_components_Favorite_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

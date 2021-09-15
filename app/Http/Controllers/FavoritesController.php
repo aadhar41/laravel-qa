@@ -17,15 +17,19 @@ class FavoritesController extends Controller
     //     dd('Invoked');
     // }
 
-    public function store(Question $question)
+    public function store(Question $question, Request $request)
     {
         $question->favorites()->attach(auth()->id());
-        return back();
+        if ($request->expectsJson()) {
+            return response()->json(null, 204);
+        }
     }
 
-    public function destroy(Question $question)
+    public function destroy(Question $question, Request $request)
     {
         $question->favorites()->detach(auth()->id());
-        return back();
+        if ($request->expectsJson()) {
+            return response()->json(null, 204);
+        }
     }
 }

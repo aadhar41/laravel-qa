@@ -28,9 +28,9 @@ export default {
                 // console.log(res);
                 this.editing = false;
                 this.bodyHtml = res.data.body_html;
-                this.$toast.success(res.data.message, "Success", { timeout: 3000 });
+                this.$toast.success(res.data.message, "Success", { timeout: 5000, position: "topRight" });
             }).catch((err) => {
-                this.$toast.error(err.response.data.message, "Error", { timeout: 3000 });
+                this.$toast.error(err.response.data.message, "Error", { timeout: 5000, position: "topRight" });
             });
         },
         destroy() {
@@ -50,7 +50,7 @@ export default {
                         axios.delete(this.endpoint)
                         .then(res => {
                             $(this.$el).fadeOut(500, () => {
-                                this.$toast.success(res.data.message, "Success", { timeout: 3000 });
+                                this.$toast.success(res.data.message, "Success", { timeout: 3000, position: "topRight" });
                             })
                         });
                     
