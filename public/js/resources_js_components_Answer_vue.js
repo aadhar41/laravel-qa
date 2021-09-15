@@ -41,21 +41,46 @@ __webpack_require__.r(__webpack_exports__);
         // console.log(res);
         _this.editing = false;
         _this.bodyHtml = res.data.body_html;
-        alert(res.data.message);
+
+        _this.$toast.success(res.data.message, "Success", {
+          timeout: 3000
+        });
       })["catch"](function (err) {
-        alert(err.response.data.message);
+        _this.$toast.error(err.response.data.message, "Error", {
+          timeout: 3000
+        });
       });
     },
     destroy: function destroy() {
       var _this2 = this;
 
-      if (confirm('Are you sure?')) {
-        axios["delete"](this.endpoint).then(function (res) {
-          $(_this2.$el).fadeOut(500, function () {
-            alert(res.data.message);
+      this.$toast.question('Are you sure about that?', "Confirm", {
+        timeout: 20000,
+        close: false,
+        overlay: true,
+        color: 'red',
+        displayMode: 'once',
+        id: 'question',
+        zindex: 999,
+        title: 'Hey',
+        position: 'center',
+        buttons: [['<button><b>YES</b></button>', function (instance, toast) {
+          axios["delete"](_this2.endpoint).then(function (res) {
+            $(_this2.$el).fadeOut(500, function () {
+              _this2.$toast.success(res.data.message, "Success", {
+                timeout: 3000
+              });
+            });
           });
-        });
-      }
+          instance.hide({
+            transitionOut: 'fadeOut'
+          }, toast, 'button');
+        }, true], ['<button>NO</button>', function (instance, toast) {
+          instance.hide({
+            transitionOut: 'fadeOut'
+          }, toast, 'button');
+        }]]
+      });
     }
   },
   computed: {
