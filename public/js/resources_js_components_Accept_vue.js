@@ -46,7 +46,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     canAccept: function canAccept() {
-      return true;
+      return this.authorize('accept', this.answer);
     },
     accepted: function accepted() {
       return !this.canAccept && this.isBest;

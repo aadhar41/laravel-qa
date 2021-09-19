@@ -32,9 +32,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     endpoint: function endpoint() {
       return "/questions/".concat(this.id, "/favorites");
-    },
-    signedIn: function signedIn() {
-      return window.Auth.signedIn;
     }
   },
   methods: {

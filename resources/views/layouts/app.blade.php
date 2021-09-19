@@ -82,7 +82,7 @@
 
     <script>
         window.Auth = <?php
-                        echo json_encode(['signedIn' => Auth::check(), 'use' => Auth::user()]);
+                        echo json_encode(['signedIn' => Auth::check(), 'user' => Auth::user()]);
                         ?>
     </script>
     <!-- Scripts -->
